@@ -1,0 +1,7 @@
+---
+# vars file for jenkins-ansible
+file: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+destination: /usr/share/keyrings/jenkins-keyring.asc
+dest: /etc/apt/sources.list.d/jenkins.list
+content: |
+  deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/

@@ -1,0 +1,6 @@
+---
+- hosts: serverB
+  become: yes
+  roles:
+    - jenkins-ansible
+...
