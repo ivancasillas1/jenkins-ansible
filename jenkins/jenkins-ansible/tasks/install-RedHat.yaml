@@ -8,7 +8,7 @@
 - name: Add Jenkins repository key
   ansible.builtin.rpm_key:
     state: present
-    url: "{{ file_red }}"
+    key: "{{ file_red }}"
 
 - name: Update and upgrade apt packages
   ansible.builtin.yum:
