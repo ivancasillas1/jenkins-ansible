@@ -1,5 +1,5 @@
 ---
-- hosts: master
+- hosts: 192.168.10.40
   become: yes
   roles:
     - jenkins-ansible
