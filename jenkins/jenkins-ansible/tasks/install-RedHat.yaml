@@ -1,0 +1,52 @@
+---
+- name: Add Jenkins repository
+  ansible.builtin.copy:
+    dest: "{{ dest_red }}"
+    content: "{{ content_red }}"
+    mode: '0644'
+
+- name: Add Jenkins repository key
+  ansible.builtin.rpm_key:
+    state: present
+    url: "{{ file_red }}"
+
+- name: Update and upgrade apt packages
+  ansible.builtin.yum:
+    name: "*"
+    state: latest
+
+- name: Install required dependencies
+  ansible.builtin.yum:
+    name:
+      - fontconfig
+      - java-17-openjdk
+    state: present
+
+- name: Install Jenkins
+  ansible.builtin.yum:
+    name: jenkins
+    state: present
+    update_cache: yes
+
+- name: Reload systemd to recognize Jenkins service
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Start and enable Jenkins
+  ansible.builtin.systemd:
+    name: jenkins
+    state: started
+    enabled: true
+
+- name: Install Firewalld
+  ansible.builtin.yum:
+    name: firewalld
+    state: latest
+
+- name: Open port for Jenkins
+  ansible.builtin.firewalld:
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+    immediate: yes
+...

@@ -1,4 +1,4 @@
 ---
 # tasks file for jenkins-ansible
-- import_tasks: install.yaml
+- import_tasks: "install-{{ ansible_os_family }}.yaml"
 ...
