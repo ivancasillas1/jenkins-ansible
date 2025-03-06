@@ -1,14 +1,13 @@
 ---
 - name: Add Jenkins repository
   ansible.builtin.copy:
-    dest: "{{ dest_red }}"
-    content: "{{ content_red }}"
-    mode: '0644'
+    url: "{{ dest_red }}"
+    dest: "{{ content_red }}"
 
 - name: Add Jenkins repository key
   ansible.builtin.rpm_key:
     state: present
-    key: "{{ file_red }}"
+    dest: "{{ file_red }}"
 
 - name: Update and upgrade apt packages
   ansible.builtin.yum:
