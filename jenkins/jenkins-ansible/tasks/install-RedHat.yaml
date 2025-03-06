@@ -1,7 +1,7 @@
 ---
 - name: Add Jenkins repository
   ansible.builtin.get_url:
-    url: {{ dest_red }}
+    url: "{{ dest_red }}"
     dest: "{{ content_red }}"
 
 - name: Add Jenkins repository key
