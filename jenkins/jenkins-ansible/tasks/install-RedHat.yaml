@@ -3,6 +3,7 @@
   ansible.builtin.get_url:
     url: "{{ dest_red }}"
     dest: "{{ content_red }}"
+  become: yes
 
 - name: Add Jenkins repository key
   ansible.builtin.rpm_key:
