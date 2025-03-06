@@ -1,5 +1,5 @@
 ---
-- hosts: serverB
+- hosts: master
   become: yes
   roles:
     - jenkins-ansible
