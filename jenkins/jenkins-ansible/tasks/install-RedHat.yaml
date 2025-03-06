@@ -1,7 +1,7 @@
 ---
 - name: Add Jenkins repository
   ansible.builtin.copy:
-    url: "{{ dest_red }}"
+    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
     dest: "{{ content_red }}"
 
 - name: Add Jenkins repository key
