@@ -1,4 +1,8 @@
 ---
+- name: Test sudo permissions
+  ansible.builtin.command: whoami
+  become: yes
+
 - name: Add Jenkins repository
   ansible.builtin.get_url:
     url: "{{ dest_red }}"
