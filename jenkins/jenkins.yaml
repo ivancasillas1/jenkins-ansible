@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.10.41
+- hosts: localhost
   become: yes
   roles:
     - jenkins-ansible
