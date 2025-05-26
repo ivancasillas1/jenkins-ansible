@@ -8,8 +8,8 @@ cliente1 ansible_host=192.168.10.41 ansible_user=vagrant
 [master]
 master ansible_host=192.168.10.40 ansible_user=vagrant
 
-[localhost]
-lh ansible_connection=local ansible_host=127.0.0.1 ansible_user=root
-
 [all:vars]
 ansible_python_interpreter=/user/bin/python3
+
+[localhost]
+lh ansible_connection=local ansible_host=127.0.0.1 ansible_user=root ansible_python_interpreter=/usr/bin/python3
